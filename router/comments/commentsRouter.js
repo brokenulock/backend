@@ -77,7 +77,7 @@ router.get("/user/:id", (req, res) => {
 //   }
 // );
 
-router.post("/", restricted, prepNewComment, (req, res) => {
+router.post("/post/:id", restricted, prepNewComment, (req, res) => {
   Comments.add(req.body)
     .then(inserted => {
       res.status(201).json(inserted);

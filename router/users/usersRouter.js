@@ -5,19 +5,6 @@ const Posts = require("../posts/postsModel");
 
 const restricted = require("../auth/middleware/restrictedMiddleware");
 
-router.get(
-  "/all",
-  // restricted,
-  (req, res) => {
-    Users.find()
-      .then(() => {
-        res.json({ users, token: req.decodedToken });
-      })
-      .catch(err => {
-        res.send(err);
-      });
-  }
-);
 
 router.get("/", (req, res) => {
   Users.getUsers()
@@ -27,7 +14,7 @@ router.get("/", (req, res) => {
     .catch(err => {
       res
         .status(500)
-        .json({ error: err, message: "Cannot retrieve users from database." });
+        .json({ err, message: "Cannot retrieve users from database." });
     });
 });
 
