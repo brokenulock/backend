@@ -1,0 +1,74 @@
+const router = require("express").Router();
+
+const Posts = require("./postsModel");
+const Comments = require("../comments/commentsModel");
+const restricted = require("../auth/middleware/restrictedMiddleware");
+const { verifyPostOwner, prepNewPost } = require("./middleware");
+
+router.get("/", (req, res) => {
+  Posts.getAllPosts()
+    .then(post => {
+      res.status(200).json(post);
+    })
+    .catch(error => {
+      res
+        .status(500)
+        .json({ req, error, message: "error retrieving all posts" });
+    });
+});
+
+router.get("/:id", (req, res) => {
+  Posts.findById(req.params.id)
+    .then(post => {
+      Comments.findByPostId(req.params.id).then(comment => {
+        post.comments = comment;
+        return res.status(200).json(post);
+      });
+    })
+    .catch(err => {
+      res
+        .status(500)
+        .json({ err, message: "we ran into an error retreving the user" });
+    });
+});
+
+router.post("/", restricted, prepNewPost, async (req, res) => {
+  const post = req.body;
+  if (post.description && post.image) {
+    try {
+      const inserted = await Posts.add(post);
+      res.status(201).json(inserted);
+    } catch (error) {
+      res
+        .status(500)
+        .json({ error, message: "we ran into an error posting your tab" });
+    }
+  } else {
+    res.status(400).json({ message: "Please provide a description" });
+  }
+});
+
+router.put("/:id", restricted, verifyPostOwner, (req, res) => {
+  Posts.update(req.params.id, req.body)
+    .then(update => {
+      res.status(200).json(update);
+    })
+    .catch(err => {
+      res.status(500).json({ err, message: "this post does not exist" });
+    });
+});
+
+router.delete("/:id", restricted, verifyPostOwner, (req, res) => {
+  Posts.remove(req.params.id)
+    .then(del => {
+      res
+        .status(200)
+        .json({ message: "the post has successfully been deleted" })
+        .end(del);
+    })
+    .catch(err => {
+      res.status(500).json({ err, message: "this post does not exist" });
+    });
+});
+
+module.exports = router;
