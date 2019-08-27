@@ -2,8 +2,8 @@ const router = require("express").Router();
 
 const Comments = require("./commentsModel");
 const restricted = require("../auth/middleware/restrictedMiddleware");
-const { verifyCommentOwner, prepNewComment } = require("./middleware");
-
+const { verifyCommentOwner, prepNewComment, verifyCommentExist } = require("./middleware");
+const {verifyUserExist} = require("../users/middleware")
 router.get("/", (req, res) => {
   Comments.getAllComments()
     .then(comment => {
@@ -14,7 +14,7 @@ router.get("/", (req, res) => {
     });
 });
 
-router.get("/:id", (req, res) => {
+router.get("/:id",verifyCommentExist, (req, res) => {
   Comments.findById(req.params.id)
     .then(comment => {
       return res.status(200).json(comment);
@@ -40,7 +40,7 @@ router.get("/post/:id", (req, res) => {
     });
 });
 
-router.get("/user/:id", (req, res) => {
+router.get("/user/:id",verifyUserExist, (req, res) => {
   let user = req.params;
   Comments.findByUserId(user.id)
     .then(comments => {

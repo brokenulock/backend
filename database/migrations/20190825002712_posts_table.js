@@ -36,18 +36,19 @@ exports.up = function(knex) {
 
     tbl.boolean("found");
 
-    tbl.timestamps(true, true);
-
     // update last seen
+
     tbl.string("last_seen_location", 128);
 
-    tbl.string("last_latitude", 128);
+    tbl.float("last_latitude", 128);
 
-    tbl.string("last_longitude", 128);
+    tbl.float("last_longitude", 128);
 
     tbl.date("last_date_seen");
 
     tbl.time("last_time_seen");
+    
+    tbl.timestamps(true, true);
   });
 };
 
