@@ -18,6 +18,8 @@ exports.up = function(knex) {
 
     tbl.increments();
 
+    tbl.string("receiver_id", 128);
+
     tbl.string("comment", 1000).notNullable();
 
     tbl.timestamps(true, true);

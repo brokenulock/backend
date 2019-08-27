@@ -16,7 +16,7 @@ function getAllComments() {
     .join("users", "comments.user_id", "=", "users.id")
     .select(
       { username: "users.username" },
-      {user_id: "user.id"},
+      { user_id: "users.id" },
       { post_id: "posts.id" },
       { comment_id: "comments.id" },
       "comments.comment",

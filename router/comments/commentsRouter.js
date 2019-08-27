@@ -1,9 +1,18 @@
 const router = require("express").Router();
 
 const Comments = require("./commentsModel");
+const Notifications = require("../notifications/notificationsModel");
+const Users = require("../users/usersModel");
+
 const restricted = require("../auth/middleware/restrictedMiddleware");
-const { verifyCommentOwner, prepNewComment, verifyCommentExist } = require("./middleware");
-const {verifyUserExist} = require("../users/middleware")
+const {
+  verifyCommentOwner,
+  prepNewComment,
+  verifyCommentExist
+} = require("./middleware");
+const { verifyUserExist } = require("../users/middleware");
+const { verifyPostExist } = require("../posts/middleware");
+const { prepNewNotification } = require("../notifications/middleware");
 router.get("/", (req, res) => {
   Comments.getAllComments()
     .then(comment => {
@@ -14,7 +23,7 @@ router.get("/", (req, res) => {
     });
 });
 
-router.get("/:id",verifyCommentExist, (req, res) => {
+router.get("/:id", verifyCommentExist, (req, res) => {
   Comments.findById(req.params.id)
     .then(comment => {
       return res.status(200).json(comment);
@@ -26,7 +35,7 @@ router.get("/:id",verifyCommentExist, (req, res) => {
     });
 });
 
-router.get("/post/:id", (req, res) => {
+router.get("/post/:id", verifyPostExist, (req, res) => {
   let post = req.params;
   Comments.findByPostId(post.id)
     .then(comments => {
@@ -40,7 +49,7 @@ router.get("/post/:id", (req, res) => {
     });
 });
 
-router.get("/user/:id",verifyUserExist, (req, res) => {
+router.get("/user/:id", verifyUserExist, (req, res) => {
   let user = req.params;
   Comments.findByUserId(user.id)
     .then(comments => {
@@ -80,7 +89,22 @@ router.get("/user/:id",verifyUserExist, (req, res) => {
 router.post("/post/:id", restricted, prepNewComment, (req, res) => {
   Comments.add(req.body)
     .then(inserted => {
-      res.status(201).json(inserted);
+      notification = {};
+
+      notification.comment_id = inserted.comment_id;
+      notification.sender_id = req.decodedToken.id;
+      notification.sender_username = req.decodedToken.username;
+      notification.seen = false;
+      notification.post_id = req.params.id;
+      Users.findById(req.body.receiver_id).then(info => {
+        notification.receiver_username = info.username;
+        notification.receiver_id = req.body.receiver_id;
+      });
+      Notifications.add(notification).then(newNotification => {
+        res.status(201).json({ newNotification, inserted, notification });
+      });
+
+      // res.status(201).json(inserted);
     })
     .catch(error => {
       res.status(500).json({

@@ -2,7 +2,7 @@ const db = require("../../database/dbConfig");
 
 module.exports = {
   getUsers,
-  find,
+  // find,
   findBy,
   findById,
   update,
@@ -13,15 +13,14 @@ function getUsers() {
   return db("users");
 }
 
-function find() {
-  return db("users").select(
-    "id",
-    "username",
-    "password",
-    "created_at",
-    "updated_at"
-  );
-}
+// function find() {
+//   return db("users").select(
+//     "id",
+//     "username",
+//     "created_at",
+//     "updated_at"
+//   );
+// }
 
 function findBy(filter) {
   return db("users").where(filter);
@@ -30,7 +29,22 @@ function findBy(filter) {
 function findById(id) {
   return db("users")
     .where({ id })
-    .first();
+    .first().select(
+      "id",
+      "username",
+      "email",
+      "avatar",
+      "first_name",
+      "last_name",
+      "phone",
+      "instagram",
+      "facebook",
+      "twitter",
+      "website",
+      "bio",
+      "created_at",
+      "updated_at"
+    );
 }
 
 function update(id, changes) {

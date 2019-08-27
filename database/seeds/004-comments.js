@@ -8,10 +8,22 @@ exports.seed = function(knex) {
         // Inserts seed entries
         return knex("comments").insert([
           {
-            user_id: 1,
+            user_id: 2,
             post_id: 1,
             id: 1,
-            comment: "this is a test comment on a post"
+            comment: "hey i saw your bike"
+          },
+          {
+            user_id: 1,
+            post_id: 1,
+            id: 2,
+            comment: "omg where??"
+          },
+          {
+            user_id: 2,
+            post_id: 1,
+            id: 3,
+            comment: "In queens!!"
           }
         ]);
       })

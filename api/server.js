@@ -9,7 +9,7 @@ const commentsRouter = require("../router/comments/commentsRouter");
 const lastLocationRouter = require("../router/lastlocation/lastLocationRouter");
 
 // const commentsRouter = require("..router/comments/commentsRouter")
-// const notificationsRouter = require("../router/notifications/notificationsRouter")
+const notificationsRouter = require("../router/notifications/notificationsRouter")
 
 const server = express();
 
@@ -22,6 +22,7 @@ server.use("/api/users", usersRouter);
 server.use("/api/posts", postsRouter);
 server.use("/api/lastLocation", lastLocationRouter);
 server.use("/api/comments", commentsRouter);
+server.use("/api/notifications", notificationsRouter)
 
 // server.use('/api/notifications', notificationsRouter)
 
