@@ -4,7 +4,6 @@ module.exports = {
   add,
   remove,
   update,
-  //   getUserPosts,
   getAllComments,
   findById,
   findByPostId,
@@ -17,7 +16,7 @@ function getAllComments() {
     .join("users", "comments.user_id", "=", "users.id")
     .select(
       { username: "users.username" },
-      "comments.user_id",
+      { user_id: "users.id" },
       { post_id: "posts.id" },
       { comment_id: "comments.id" },
       "comments.comment",

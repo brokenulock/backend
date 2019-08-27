@@ -22,7 +22,12 @@ exports.seed = function(knex) {
             latitude: 40.6958,
             longitude: -73.9171,
             reward: "I'll buy you a beer",
-            found: true
+            found: true,
+            last_seen_location: "Bushwick, Brooklyn, NY",
+            last_latitude: 40.695338,
+            last_longitude: -73.9133371,
+            last_date_seen: "2018-11-29T00:00:00.000Z",
+            last_time_seen: "1970-01-01T22:20:00.000Z"
           }
         ]);
       })
