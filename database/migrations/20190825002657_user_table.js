@@ -20,7 +20,7 @@ exports.up = function(knex) {
 
     tbl.string("last_name", 128);
 
-    tbl.string("phone", 128);
+    tbl.float("phone", 128);
 
     tbl.string("instagram", 128);
 
