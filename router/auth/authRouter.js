@@ -39,7 +39,7 @@ router.post("/login", (req, res) => {
       }
     })
     .catch(error => {
-      res.status(500).json({error, message:"error"});
+      res.status(500).json({error, message:"error user might not exist"});
     });
 });
 

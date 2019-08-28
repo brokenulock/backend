@@ -3,6 +3,7 @@ const router = require("express").Router();
 const Comments = require("./commentsModel");
 const Notifications = require("../notifications/notificationsModel");
 const Users = require("../users/usersModel");
+const Posts = require("../posts/postsModel");
 
 const restricted = require("../auth/middleware/restrictedMiddleware");
 const {
@@ -12,7 +13,8 @@ const {
 } = require("./middleware");
 const { verifyUserExist } = require("../users/middleware");
 const { verifyPostExist } = require("../posts/middleware");
-const { prepNewNotification } = require("../notifications/middleware");
+const { prepNewCommentNotification } = require("../notifications/middleware");
+
 router.get("/", (req, res) => {
   Comments.getAllComments()
     .then(comment => {
@@ -86,33 +88,32 @@ router.get("/user/:id", verifyUserExist, (req, res) => {
 //   }
 // );
 
-router.post("/post/:id", restricted, prepNewComment, (req, res) => {
-  Comments.add(req.body)
-    .then(inserted => {
-      notification = {};
-
-      notification.comment_id = inserted.comment_id;
-      notification.sender_id = req.decodedToken.id;
-      notification.sender_username = req.decodedToken.username;
-      notification.seen = false;
-      notification.post_id = req.params.id;
-      Users.findById(req.body.receiver_id).then(info => {
-        notification.receiver_username = info.username;
-        notification.receiver_id = req.body.receiver_id;
+router.post(
+  "/post/:id",
+  restricted,
+  verifyPostExist,
+  prepNewComment,
+  prepNewCommentNotification,
+  (req, res) => {
+    Comments.add(req.body)
+      .then(inserted => {
+        notification.comment_id = inserted.comment_id;
+        if (req.decodedToken.id == notification.receiver_id) {
+          res.status(201).json(inserted);
+        } else {
+          Notifications.add(notification).then(newNotification => {
+            res.status(201).json({ newNotification, inserted });
+          });
+        }
+      })
+      .catch(error => {
+        res.status(500).json({
+          error,
+          message: "we ran into an error posting your comment"
+        });
       });
-      Notifications.add(notification).then(newNotification => {
-        res.status(201).json({ newNotification, inserted, notification });
-      });
-
-      // res.status(201).json(inserted);
-    })
-    .catch(error => {
-      res.status(500).json({
-        error,
-        message: "we ran into an error posting your comment"
-      });
-    });
-});
+  }
+);
 
 router.put("/:id", restricted, verifyCommentOwner, (req, res) => {
   const id = req.params.id;
