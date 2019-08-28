@@ -2,11 +2,14 @@ const db = require("../../database/dbConfig");
 
 module.exports = {
   add,
-  // remove,
-  // update,
+  remove,
+  removeAllUsersNotifications,
+  update,
+  findById,
   getAllNotifications,
   findByReceiverId,
-  findBySenderId
+  findBySenderId,
+  removeAll
 };
 
 function getAllNotifications() {
@@ -101,4 +104,40 @@ async function add(notification) {
   const [id] = await db("notifications").insert(notification, "id");
 
   return findById(id);
+}
+
+function update(id, changes) {
+  return db("notifications")
+    .where({ id })
+    .update(changes)
+    .then(count => {
+      if (count > 0) {
+        return findById(id);
+      } else {
+        return null;
+      }
+    });
+}
+
+function remove(id) {
+  return db("notifications")
+    .where({ id })
+    .del();
+}
+
+function removeAllUsersNotifications(id) {
+  return db("notifications")
+    .where("notifications.receiver_id", id)
+    .del();
+}
+
+function removeAllUsersNotifications(id) {
+  return db("notifications")
+    .where("notifications.receiver_id", id)
+    .del();
+}
+
+function removeAll() {
+  return db("notifications")
+    .del();
 }

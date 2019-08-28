@@ -105,4 +105,21 @@ router.delete("/:id", restricted, (req, res) => {
   }
 });
 
+router.delete("/", restricted, (req, res) => {
+    Users.remove(req.decodedToken.id)
+      .then(del => {
+        res
+          .status(200)
+          .json({
+            message: `User was successfully deleted`
+          })
+          .end(del);
+      })
+      .catch(err => {
+        res.status(500).json({ err, message: "error, unable to delete user" });
+      });
+  
+  
+});
+
 module.exports = router;
