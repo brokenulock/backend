@@ -17,7 +17,6 @@ exports.seed = function(knex) {
             serial_number: "4454626326325443",
             description: "example post",
             date_stolen: "2018-11-29T00:00:00.000Z",
-            time_stolen: "1970-01-01T22:20:00.000Z",
             location: "Bushwick, Brooklyn, NY",
             latitude: 40.6958,
             longitude: -73.9171,
@@ -27,7 +26,6 @@ exports.seed = function(knex) {
             last_latitude: 40.695338,
             last_longitude: -73.9133371,
             last_date_seen: "2018-11-29T00:00:00.000Z",
-            last_time_seen: "1970-01-01T22:20:00.000Z"
           },
           {
             user_id: 2,
@@ -40,7 +38,6 @@ exports.seed = function(knex) {
             description:
               "I usually leave my bike in the hall way of my home. someone must have entered and stole it while slept.",
             date_stolen: "2018-11-29T00:00:00.000Z",
-            time_stolen: "1970-01-01T22:20:00.000Z",
             location: "Bushwick, Brooklyn, NY",
             latitude: 42.6958,
             longitude: -73.9171,
@@ -50,7 +47,6 @@ exports.seed = function(knex) {
             last_latitude: 40.695338,
             last_longitude: -73.9133371,
             last_date_seen: "2018-11-29T00:00:00.000Z",
-            last_time_seen: "1970-01-01T22:20:00.000Z"
           },
           {
             user_id: 3,
@@ -62,8 +58,6 @@ exports.seed = function(knex) {
             serial_number: "44546342426326325443",
             description:
               "this bike was not stolen outside my home. It was u locked and the person cut did not cut the lock.",
-            date_stolen: "2018-11-29T00:00:00.000Z",
-            time_stolen: "1970-01-01T22:20:00.000Z",
             location: "Bushwick, Brooklyn, NY",
             latitude: 40.58,
             longitude: -73.71,
@@ -72,7 +66,6 @@ exports.seed = function(knex) {
             last_latitude: 40.6945338,
             last_longitude: -73.913371,
             last_date_seen: "2018-11-29T00:00:00.000Z",
-            last_time_seen: "1970-01-01T22:20:00.000Z"
           }
         ]);
       })
