@@ -20,14 +20,14 @@ exports.up = function(knex) {
 
     tbl.string("receiver_username");
 
-    tbl.string("alert", 1000);
-
-    tbl.integer("receiver_id");
+    tbl.integer("receiver_id").notNullable();
 
     tbl.increments();
 
     tbl.boolean("seen").notNullable();
 
+    tbl.string("alert", 1000);
+    
     tbl.timestamps(true, true);
   });
 };
