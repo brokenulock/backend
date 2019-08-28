@@ -7,7 +7,6 @@ exports.seed = function(knex) {
         // Inserts seed entries
         return knex("notifications").insert([
           {
-            id: 1,
             post_id: 1,
             comment_id: 1,
             sender_username: "irving",
@@ -17,7 +16,6 @@ exports.seed = function(knex) {
             seen: 0
           },
           {
-            id: 2,
             post_id: 1,
             comment_id: 2,
             sender_username: "fixmylife",
@@ -27,7 +25,6 @@ exports.seed = function(knex) {
             seen: 0
           },
           {
-            id: 3,
             post_id: 1,
             comment_id: 3,
             sender_username: "irving",

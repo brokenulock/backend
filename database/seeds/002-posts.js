@@ -8,7 +8,6 @@ exports.seed = function(knex) {
         return knex("posts").insert([
           {
             user_id: 1,
-            id: 1,
             image:
               "https://cdn.shopify.com/s/files/1/0232/3305/products/State_Bicycle_Cyclocross_SSCX_Thunderbird2.JPG?v=1565719092",
             brand: "State Bicycle",
@@ -24,12 +23,10 @@ exports.seed = function(knex) {
             found: true,
             last_seen_location: "Bushwick, Brooklyn, NY",
             last_latitude: 40.695338,
-            last_longitude: -73.9133371,
-            last_date_seen: "2018-11-29T00:00:00.000Z",
+            last_longitude: -73.9133371
           },
           {
             user_id: 2,
-            id: 2,
             image:
               "https://cdn.shopify.com/s/files/1/0232/3305/products/state_bicycle_co_white_ghoul_fixie_1_1024x1024.jpg?v=1512236244",
             brand: "State Bicycle",
@@ -45,12 +42,10 @@ exports.seed = function(knex) {
             found: true,
             last_seen_location: "Bushwick, Brooklyn, NY",
             last_latitude: 40.695338,
-            last_longitude: -73.9133371,
-            last_date_seen: "2018-11-29T00:00:00.000Z",
+            last_longitude: -73.9133371
           },
           {
             user_id: 3,
-            id: 3,
             image:
               "https://cdn.shopify.com/s/files/1/0232/3305/products/state_bicycle_co_matte_black_wulf_fixie_1_1024x1024.jpg?v=1484343662",
             brand: "State Bicycle",
@@ -64,8 +59,7 @@ exports.seed = function(knex) {
             found: true,
             last_seen_location: "Bushwick, Brooklyn, NY",
             last_latitude: 40.6945338,
-            last_longitude: -73.913371,
-            last_date_seen: "2018-11-29T00:00:00.000Z",
+            last_longitude: -73.913371
           }
         ]);
       })
