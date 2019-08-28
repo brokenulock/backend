@@ -24,6 +24,18 @@ exports.seed = function(knex) {
             post_id: 1,
             id: 3,
             comment: "In queens!!"
+          },
+          {
+            user_id: 3,
+            post_id: 2,
+            id: 4,
+            comment: "sorry your bike for stolen i will keep an eye out"
+          },
+          {
+            user_id: 2,
+            post_id: 3,
+            id: 5,
+            comment: "sorry your bike for stolen i will keep an eye out"
           }
         ]);
       })
