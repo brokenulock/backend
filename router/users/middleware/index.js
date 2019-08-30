@@ -16,7 +16,7 @@ async function verifyUserExist(req, res, next) {
   }
 }
 
-async function checkIfUserExist(req, res, next) {
+function checkIfUserExist(req, res, next) {
   registeruser = req.body;
   if (req.body.email) {
     Auth.findByEmail(req.body.email)
