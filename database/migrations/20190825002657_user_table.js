@@ -7,7 +7,7 @@ exports.up = function(knex) {
       .notNullable()
       .unique();
 
-    tbl.string("password", 128).notNullable();
+    tbl.string("password", 128);
 
     tbl
       .string("email", 128)
@@ -32,6 +32,8 @@ exports.up = function(knex) {
 
     tbl.string("bio", 1000);
 
+    tbl.string("lastSignInTime", 128);
+    
     tbl.timestamps(true, true);
   });
 };

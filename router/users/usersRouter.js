@@ -105,7 +105,7 @@ router.delete("/:id", restricted, (req, res) => {
   }
 });
 
-router.delete("/", restricted, (req, res) => {
+router.delete("/", restricted,verifyUserExist, (req, res) => {
     Users.remove(req.decodedToken.id)
       .then(del => {
         res
