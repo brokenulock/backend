@@ -12,7 +12,9 @@ exports.up = function(knex) {
 
     tbl.string("image").notNullable();
 
-    tbl.string("brand", 128);
+    tbl.string("manufacturer", 128);
+
+    tbl.string("size", 128);
 
     tbl.string("model", 128);
 
