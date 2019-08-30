@@ -10,7 +10,6 @@ exports.seed = function(knex) {
         return knex("users").insert([
           {
             username: "fixmylife",
-            password: bcrypt.hashSync("password", 10),
             email: "fixmylife@gmail.com",
             avatar: "https://avatars2.githubusercontent.com/u/32081816?s=460&v=4",
             first_name: "irving",
@@ -23,7 +22,6 @@ exports.seed = function(knex) {
           },
           {
             username: "irving",
-            password: bcrypt.hashSync("password", 10),
             email: "irving@gmail.com",
             avatar: "https://github.com/brokenulock/frontend/blob/master/src/bulfmlimg/default-avatar.png?raw=true",
             first_name: "irving",
@@ -35,7 +33,6 @@ exports.seed = function(knex) {
           },
           {
             username: "jimmyhedge",
-            password: bcrypt.hashSync("password", 10),
             email: "jimmy@gmail.com",
             avatar: "https://github.com/brokenulock/frontend/blob/master/src/bulfmlimg/default-avatar.png?raw=true",
             first_name: "jimmy",
@@ -45,7 +42,6 @@ exports.seed = function(knex) {
           },
           {
             username: "brokenulock",
-            password: bcrypt.hashSync("password", 10),
             email: "contact@duranirving.com",
             avatar: "https://github.com/brokenulock/frontend/blob/master/src/bulfmlimg/brokenulocklogo.png?raw=true",
             first_name: "irving",

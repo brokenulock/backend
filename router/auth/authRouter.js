@@ -3,7 +3,7 @@ const bcrypt = require("bcryptjs");
 
 const Auth = require("./authModel");
 const generateToken = require("../../token/token");
-
+const {checkIfUserExist} = require("../users/middleware")
 
 router.post("/register", (req, res) => {
   let user = req.body;
@@ -13,7 +13,6 @@ router.post("/register", (req, res) => {
 
   Auth.add(user)
     .then(saved => {
-      // const token = generateToken(user);
       res.status(201).json(saved);
     })
     .catch(error => {
@@ -42,6 +41,27 @@ router.post("/login", (req, res) => {
       res.status(500).json({error, message:"error user might not exist"});
     });
 });
+
+router.post("/firebase",checkIfUserExist, (req, res) => {
+  let { email } = req.body;
+
+  Auth.findBy({ email })
+    .first()
+    .then(user => {
+      const token = generateToken(user);
+
+        res.status(200).json({
+          message: `welcome back ${user.username}!`,
+          user,
+          token
+        });
+
+    })
+    .catch(error => {
+      res.status(500).json({error, message:"error user might not exist"});
+    });
+});
+
 
 
 module.exports = router;
