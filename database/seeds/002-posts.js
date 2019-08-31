@@ -63,7 +63,7 @@ exports.seed = function(knex) {
             last_longitude: -73.913371
           },
           {
-            user_id: 3,
+            user_id: 4,
             image:
               "https://cdn.shopify.com/s/files/1/0232/3305/products/state_bicycle_co_matte_black_wulf_fixie_1_1024x1024.jpg?v=1484343662",
             manufacturer: "State Bicycle",
@@ -136,7 +136,7 @@ exports.seed = function(knex) {
             last_longitude: -73.913371
           },
           {
-            user_id: 3,
+            user_id: 4,
             image:
               "https://cdn.shopify.com/s/files/1/0232/3305/products/state_bicycle_co_matte_black_wulf_fixie_1_1024x1024.jpg?v=1484343662",
             manufacturer: "State Bicycle",
@@ -209,7 +209,7 @@ exports.seed = function(knex) {
             last_longitude: -73.913371
           },
           {
-            user_id: 3,
+            user_id: 4,
             image:
               "https://cdn.shopify.com/s/files/1/0232/3305/products/state_bicycle_co_matte_black_wulf_fixie_1_1024x1024.jpg?v=1484343662",
             manufacturer: "State Bicycle",
@@ -282,7 +282,7 @@ exports.seed = function(knex) {
             last_longitude: -73.913371
           },
           {
-            user_id: 3,
+            user_id: 4,
             image:
               "https://cdn.shopify.com/s/files/1/0232/3305/products/state_bicycle_co_matte_black_wulf_fixie_1_1024x1024.jpg?v=1484343662",
             manufacturer: "State Bicycle",
