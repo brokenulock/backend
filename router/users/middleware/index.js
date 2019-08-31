@@ -26,7 +26,6 @@ function checkIfUserExist(req, res, next) {
         } else {
           registeruser.username =
             req.body.username || req.body.email.replace(/@.*/, "");
-          registeruser.avatar = req.body.email.replace(/@.*/, "");
           registeruser.avatar =
             "https://github.com/brokenulock/frontend/blob/master/src/bulfmlimg/default-avatar.png?raw=true";
           Auth.add(registeruser)

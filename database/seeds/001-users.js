@@ -23,7 +23,7 @@ exports.seed = function(knex) {
           {
             username: "irving",
             email: "irving@gmail.com",
-            avatar: "https://github.com/brokenulock/frontend/blob/master/src/bulfmlimg/default-avatar.png?raw=true",
+            avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
             first_name: "irving",
             last_name: "duran",
             instagram: "duranfixed",
@@ -34,17 +34,17 @@ exports.seed = function(knex) {
           {
             username: "jimmyhedge",
             email: "jimmy@gmail.com",
-            avatar: "https://github.com/brokenulock/frontend/blob/master/src/bulfmlimg/default-avatar.png?raw=true",
+            avatar: "https://images.unsplash.com/photo-1528892952291-009c663ce843?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
             first_name: "jimmy",
             last_name: "duran",
             twitter: "fixmylifenyc",
             website: "duranirving.com"
           },
           {
-            username: "brokenulock",
+            username: "jess",
             email: "contact@duranirving.com",
-            avatar: "https://github.com/brokenulock/frontend/blob/master/src/bulfmlimg/brokenulocklogo.png?raw=true",
-            first_name: "irving",
+            avatar: "https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
+            first_name: "jesss",
             last_name: "duran",
             phone: "3472655234",
             instagram: "brokenulock.app",
