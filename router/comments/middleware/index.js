@@ -7,7 +7,7 @@ module.exports = {
 };
 
 function prepNewComment(req, res, next) {
-  req.body.comment = "wtffffff"
+  // req.body.comment = "wtffffff"
   if (req.body.comment) {
     req.body.post_id = req.params.id
     req.body.user_id = req.decodedToken.id
