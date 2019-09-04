@@ -15,11 +15,11 @@ module.exports = (req, res, next) => {
   // }
   const token = req.body.token ? req.body.token : req.headers.authorization;
   if (token) {
-    jwt.verify(token, secret, (err, decodedToken) => {
+    jwt.verify(token, secrets.jwtSecret, (err, decodedToken) => {
       if (err) {
         res.status(401).json({ message: "Invalid Credentials" });
       } else {
-        req.decoded = decodedToken;
+        req.decodedToken = decodedToken;
         delete req.body.token;
         next();
       }
