@@ -10,7 +10,7 @@ exports.seed = function(knex) {
         return knex("users").insert([
           {
             username: "fixmylife",
-            email: "fixmylife@gmail.com",
+            email: "ijd.irving@gmail.com",
             avatar: "https://avatars2.githubusercontent.com/u/32081816?s=460&v=4",
             first_name: "irving",
             last_name: "duran",
