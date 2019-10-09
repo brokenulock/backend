@@ -29,7 +29,7 @@ exports.seed = function(knex) {
           {
             user_id: 2,
             image:
-              "https://cdn.shopify.com/s/files/1/0232/3305/products/state_bicycle_co_white_ghoul_fixie_1_1024x1024.jpg?v=1512236244",
+              "https://cdn.shopify.com/s/files/1/0232/3305/products/state_bicycle_co_core_line_fixie_blue_jay_1_1024x1024.jpg?v=1540000558",
             manufacturer: "State Bicycle",
             model: "core-line",
             serial_number: "4454626326325443",
@@ -48,7 +48,7 @@ exports.seed = function(knex) {
           {
             user_id: 3,
             image:
-              "https://cdn.shopify.com/s/files/1/0232/3305/products/state_bicycle_co_matte_black_wulf_fixie_1_1024x1024.jpg?v=1484343662",
+              "https://cdn.shopify.com/s/files/1/0232/3305/products/state_bicycle_co_hanzo_red_fixie_1_1024x1024.jpg?v=1522692419",
             manufacturer: "State Bicycle",
             model: "core-line",
             serial_number: "44546342426326325443",
@@ -65,7 +65,7 @@ exports.seed = function(knex) {
           {
             user_id: 4,
             image:
-              "https://cdn.shopify.com/s/files/1/0232/3305/products/state_bicycle_co_matte_black_wulf_fixie_1_1024x1024.jpg?v=1484343662",
+              "https://cdn.shopify.com/s/files/1/0232/3305/products/state_bicycle_co_hanzo_red_fixie_1_1024x1024.jpg?v=1522692419",
             manufacturer: "State Bicycle",
             model: "core-line",
             serial_number: "44546342426326325443",
@@ -102,7 +102,7 @@ exports.seed = function(knex) {
           {
             user_id: 2,
             image:
-              "https://cdn.shopify.com/s/files/1/0232/3305/products/state_bicycle_co_white_ghoul_fixie_1_1024x1024.jpg?v=1512236244",
+              "https://cdn.shopify.com/s/files/1/0232/3305/products/state_bicycle_co_core_line_fixie_blue_jay_1_1024x1024.jpg?v=1540000558",
             manufacturer: "State Bicycle",
             model: "core-line",
             serial_number: "4454626326325443",
@@ -121,7 +121,7 @@ exports.seed = function(knex) {
           {
             user_id: 3,
             image:
-              "https://cdn.shopify.com/s/files/1/0232/3305/products/state_bicycle_co_matte_black_wulf_fixie_1_1024x1024.jpg?v=1484343662",
+              "https://cdn.shopify.com/s/files/1/0232/3305/products/state_bicycle_co_hanzo_red_fixie_1_1024x1024.jpg?v=1522692419",
             manufacturer: "State Bicycle",
             model: "core-line",
             serial_number: "44546342426326325443",
@@ -138,7 +138,7 @@ exports.seed = function(knex) {
           {
             user_id: 4,
             image:
-              "https://cdn.shopify.com/s/files/1/0232/3305/products/state_bicycle_co_matte_black_wulf_fixie_1_1024x1024.jpg?v=1484343662",
+              "https://cdn.shopify.com/s/files/1/0232/3305/products/state_bicycle_co_hanzo_red_fixie_1_1024x1024.jpg?v=1522692419",
             manufacturer: "State Bicycle",
             model: "core-line",
             serial_number: "44546342426326325443",
@@ -175,7 +175,7 @@ exports.seed = function(knex) {
           {
             user_id: 2,
             image:
-              "https://cdn.shopify.com/s/files/1/0232/3305/products/state_bicycle_co_white_ghoul_fixie_1_1024x1024.jpg?v=1512236244",
+              "https://cdn.shopify.com/s/files/1/0232/3305/products/state_bicycle_co_core_line_fixie_blue_jay_1_1024x1024.jpg?v=1540000558",
             manufacturer: "State Bicycle",
             model: "core-line",
             serial_number: "4454626326325443",
@@ -194,7 +194,7 @@ exports.seed = function(knex) {
           {
             user_id: 3,
             image:
-              "https://cdn.shopify.com/s/files/1/0232/3305/products/state_bicycle_co_matte_black_wulf_fixie_1_1024x1024.jpg?v=1484343662",
+              "https://cdn.shopify.com/s/files/1/0232/3305/products/state_bicycle_co_hanzo_red_fixie_1_1024x1024.jpg?v=1522692419",
             manufacturer: "State Bicycle",
             model: "core-line",
             serial_number: "44546342426326325443",
@@ -211,7 +211,7 @@ exports.seed = function(knex) {
           {
             user_id: 4,
             image:
-              "https://cdn.shopify.com/s/files/1/0232/3305/products/state_bicycle_co_matte_black_wulf_fixie_1_1024x1024.jpg?v=1484343662",
+              "https://cdn.shopify.com/s/files/1/0232/3305/products/state_bicycle_co_hanzo_red_fixie_1_1024x1024.jpg?v=1522692419",
             manufacturer: "State Bicycle",
             model: "core-line",
             serial_number: "44546342426326325443",
@@ -248,7 +248,7 @@ exports.seed = function(knex) {
           {
             user_id: 2,
             image:
-              "https://cdn.shopify.com/s/files/1/0232/3305/products/state_bicycle_co_white_ghoul_fixie_1_1024x1024.jpg?v=1512236244",
+              "https://cdn.shopify.com/s/files/1/0232/3305/products/state_bicycle_co_core_line_fixie_blue_jay_1_1024x1024.jpg?v=1540000558",
             manufacturer: "State Bicycle",
             model: "core-line",
             serial_number: "4454626326325443",
@@ -267,7 +267,7 @@ exports.seed = function(knex) {
           {
             user_id: 3,
             image:
-              "https://cdn.shopify.com/s/files/1/0232/3305/products/state_bicycle_co_matte_black_wulf_fixie_1_1024x1024.jpg?v=1484343662",
+              "https://cdn.shopify.com/s/files/1/0232/3305/products/state_bicycle_co_hanzo_red_fixie_1_1024x1024.jpg?v=1522692419",
             manufacturer: "State Bicycle",
             model: "core-line",
             serial_number: "44546342426326325443",
@@ -284,7 +284,7 @@ exports.seed = function(knex) {
           {
             user_id: 4,
             image:
-              "https://cdn.shopify.com/s/files/1/0232/3305/products/state_bicycle_co_matte_black_wulf_fixie_1_1024x1024.jpg?v=1484343662",
+              "https://cdn.shopify.com/s/files/1/0232/3305/products/state_bicycle_co_hanzo_red_fixie_1_1024x1024.jpg?v=1522692419",
             manufacturer: "State Bicycle",
             model: "core-line",
             serial_number: "44546342426326325443",
