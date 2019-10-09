@@ -73,7 +73,7 @@ router.post("/", restricted, prepNewPost, async (req, res) => {
     } catch (error) {
       res
         .status(500)
-        .json({ error, message: "we ran into an error posting your tab" });
+        .json({ error, message: "we ran into an error posting your stolen bike" });
     }
   } else {
     res.status(400).json({ message: "Please provide a description" });
