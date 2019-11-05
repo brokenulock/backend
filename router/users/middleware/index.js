@@ -4,7 +4,8 @@ const generateToken = require("../../../token/token");
 
 module.exports = {
   verifyUserExist,
-  checkIfUserExist
+  checkIfUserExist,
+  verifyAccountOwner
 };
 
 async function verifyUserExist(req, res, next) {
@@ -47,5 +48,21 @@ function checkIfUserExist(req, res, next) {
       });
   } else if (!req.body.email) {
     res.status(400).json({ message: "Please provide a email" });
+  }
+}
+
+async function verifyAccountOwner(
+  req,
+  res,
+  next
+) {
+  try {
+    const { id } = await Users.findById(req.params.id);
+    id === req.decodedToken.id
+      ? next()
+      : res.status(400).json({ message: "User does not own this account" });
+  } catch (err) {
+    // console.log("No post at ID: delete");
+    res.status(400).json({ message: "No account with that ID" });
   }
 }

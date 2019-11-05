@@ -3,7 +3,7 @@ const router = require("express").Router();
 const Users = require("./usersModel");
 const Posts = require("../posts/postsModel");
 const restricted = require("../auth/middleware/restrictedMiddleware");
-const { verifyUserExist } = require("./middleware");
+const { verifyUserExist, verifyAccountOwner } = require("./middleware");
 
 router.get("/all", (req, res) => {
   Users.getUsers()
@@ -67,7 +67,7 @@ router.get("/:id", verifyUserExist, (req, res) => {
     });
 });
 
-router.put("/:id", restricted, (req, res) => {
+router.put("/:id", restricted, verifyAccountOwner, (req, res) => {
   const id = req.params.id;
   const changes = req.body;
   Users.update(id, changes)
@@ -105,21 +105,19 @@ router.delete("/:id", restricted, (req, res) => {
   }
 });
 
-router.delete("/", restricted,verifyUserExist, (req, res) => {
-    Users.remove(req.decodedToken.id)
-      .then(del => {
-        res
-          .status(200)
-          .json({
-            message: `User was successfully deleted`
-          })
-          .end(del);
-      })
-      .catch(err => {
-        res.status(500).json({ err, message: "error, unable to delete user" });
-      });
-  
-  
+router.delete("/", restricted, verifyUserExist, (req, res) => {
+  Users.remove(req.decodedToken.id)
+    .then(del => {
+      res
+        .status(200)
+        .json({
+          message: `User was successfully deleted`
+        })
+        .end(del);
+    })
+    .catch(err => {
+      res.status(500).json({ err, message: "error, unable to delete user" });
+    });
 });
 
 module.exports = router;
