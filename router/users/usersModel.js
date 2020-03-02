@@ -10,6 +10,8 @@ module.exports = {
 };
 
 function getUsers() {
+  console.log(db("users"))
+
   return db("users");
 }
 
